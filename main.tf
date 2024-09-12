@@ -33,7 +33,7 @@ provider "aws" {
 resource "aws_instance" "Mumbai" {
   provider = aws.south-1
 
-  ami           = "ami-0ec0e125bb6c6e8ec"  # Example AMI, replace with a valid one
+  ami           = "ami-0e53db6fd757e38c7"  # Example AMI, replace with a valid one
   instance_type = "t2.micro"
 
   tags = {
@@ -41,35 +41,3 @@ resource "aws_instance" "Mumbai" {
   }
 }
 
-# Create EC2 instances in eu-north-1
-resource "aws_instance" "stockholm" {
-  provider = aws.north-1
-
-  ami           = "ami-0249211c9916306f8"  # Example AMI, replace with a valid one
-  instance_type = "t3.micro"
-
-  tags = {
-    Name = "stockholm"
-  }
-}
-
-# Create EC2 instances in us-east-1
-resource "aws_instance" "Nvirginia" {
-  provider = aws.east-1
-
-  ami           = "ami-0b72821e2f351e396"  # Example AMI, replace with a valid one
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = "Nvirginia"
-  }  
-}
-
-resource "aws_s3_bucket" "thunithovaikarabucket" {
-  bucket = "thunithovaikarabucket"
-  acl    = "private"
-
-  tags = {
-    Name        = "thunithovaikarabucket"
-  }
-}
