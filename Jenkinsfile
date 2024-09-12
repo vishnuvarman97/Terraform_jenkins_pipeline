@@ -7,26 +7,31 @@ pipeline {
         AWS_DEFAULT_REGION    = 'ap-south-1'
     }
 
-
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/vishnuvarman97/Terraform_jenkins_pipeline.git'
             }
         }
-           stage('Terraform init') {
+        stage('Terraform init') {
             steps {
                 sh 'terraform init'
             }
         }
-           stage('Terraform Plan') {
+        stage('Terraform Plan') {
             steps {
                 sh 'terraform plan'
             }
         }           
-           stage('terraform apply') {
-           steps {
-               sh 'terraform apply --auto-approve'
+        stage('Terraform Apply') {
+            steps {
+                sh 'terraform apply --auto-approve'
+            }
+        }
+        stage('Terraform Destroy') {
+            steps {
+                
+                sh 'terraform destroy --auto-approve'
             }
         }
     }
