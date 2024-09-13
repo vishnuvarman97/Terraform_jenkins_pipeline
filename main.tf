@@ -41,3 +41,12 @@ resource "aws_instance" "Mumbai" {
   }
 }
 
+resource "aws_s3_bucket" "thiruba" {
+  bucket = "thiruba"
+  acl    = "private"
+
+  tags = {
+    Name        = "thiruba"
+  }
+}
+
